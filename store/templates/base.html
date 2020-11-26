@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navber-bg mb-4">
+        <a class="navbar-brand" href="/">LittleBread</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">สินค้า</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">ตระกร้า
+                        <span class="badge badge-info">{{ request.session.cart.keys|length }}</span>
+                        </a>
+                    </li>
+                    {% if request.session.customer %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/order">รายการสั่งซื้อ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">ออกจากระบบ</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">สมัครสมาชิก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">เข้าสู่ระบบ</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </form>
+        </div>
+    </nav>
+    {% if signupSuccess %}
+        {{ signupSuccess }}
+    {% endif %}
+
+    {% block content %}  ##
+    {% endblock %}
+
+
+<footer class="page-footer font-small footer-bg pt-4">
+  <div class="container text-left text-md-left">
+    <div class="row text-center text-md-left mt-3 pb-3">
+      <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Little bread Co., Ltd.</h6>
+        <p>King Mongkut's Institute of Technology Ladkrabang.<br>
+          สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง ถนนฉลองกรุง<br>
+          เขตลาดกระบัง กรุงเทพ 10520</p>
+        <img src="https://sv1.picz.in.th/images/2020/11/01/biidvD.jpg" alt="" class="img-thumbnail"
+          style="width: 400px">
+      </div>
+      
+     
+
+      
+      <hr class="w-100 clearfix d-md-none">
+      <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-4">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+        <p>
+          <i class="fas fa-home mr-3"></i>1 Soi Chalong Krung 1, Ladkrabang, Ladkrabang, Bangkok 10520</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> little.bread@gmail.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p>
+          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row d-flex align-items-center">
+      <div class="col-md-7 col-lg-8">
+        <p class="text-center text-md-left">© 2020 Copyright: LittleBread</p>
+      </div>
+      
+
+      <div class="col-md-5 col-lg-4 ml-lg-0">
+        <div class="text-center text-md-right">
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-google-plus-g"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

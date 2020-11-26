@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Prompt:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+html,body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(28, 80%, 95%);
+  font-family: "Prompt" !important;
+  font-size: 16px;
+}
+
+table, th, td {
+    font-family: "Prompt";
+}
+
+.footer-bg {
+  font-family: "Prompt";
+  background-color: hsl(24, 71%, 65%);
+}
+
+.navber-bg {
+    background-color: hsl(24, 71%, 88%);
+}
+
+.btn-product{
+    width: 100%;
+}
+
+.list-group {
+	font-size:14px;
+}
+
+.product-card {
+    height: 400px;
+    width: 300px;
+}
+
+.product-card img {
+    height: 200px;
+}
+
+
+/* iPad Pro Screen */
+@media only screen and (max-width: 1024px) {
+	.list-group {
+	font-size:15px;
+}
+
+    .product-card {
+        height: 300px;
+        width: 230px;
+    }
+
+    .product-card img {
+        height: 100px;
+    }
+
+}
+
+/* iPad Screen */
+@media only screen and (max-width: 780px) {
+	.list-group {
+	font-size:12px;
+}
+
+    .product-card {
+        height: 290px;
+        width: 180px;
+    }
+
+    .product-card img {
+        height: 100px;
+    }
+
+}
+
+/* Mobile Phone Screen */
+@media only screen and (max-width: 600px) {
+	.list-group {
+	font-size:17px;
+	}
+
+    .product-card {
+        height: 400px;
+        width: 300px;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+
+}
+
+.ctg:hover {
+    background: #2098D1;
+}

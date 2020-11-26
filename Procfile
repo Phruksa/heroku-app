@@ -1,0 +1,1 @@
+web: gunicon Eshop.wsgi:application --log-file-

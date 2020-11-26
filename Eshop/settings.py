@@ -26,7 +26,7 @@ SECRET_KEY = '9n(rzvb1slxzt(&je0_4uagp-w_jffr3nd=nf)pi8ls=6@@8rg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'mini-littlebread.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
